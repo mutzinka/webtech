@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML Form with CSS using Thymeleaf</title>
+    <style>
+        /* CSS styles */
+        .form-container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f2f2f2;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-container h2 {
+            text-align: center;
+        }
+
+        .form-container label,
+        .form-container input[type="text"],
+        .form-container textarea {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .form-container textarea {
+            height: 100px;
+        }
+
+        .form-container input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+<div class="form-container">
+    <h2>HTML Form with CSS</h2>
+    <form th:action="@{/schools/new}" method="post">
+        <label for="name">Name of school:</label>
+        <input type="text" id="schooltitle" name="schooltitle" th:fields="*{schooltitle}" />
+        <br/>
+
+        <label for="location">Location:</label>
+        <input type="text" id="photoUrl" name="photoUrl" th:fields="*{photoUrl}" />
+        <br/>
+
+        <label for="ranking">Ranking:</label>
+        <input type="number" id="ranking" name="ranking" th:fields="*{ranking}" />
+        <br/>
+
+
+        <label for="fees"> Fees:</label>
+        <input type="number" id="schoolfees" name="schoolfees" th:fields="*{schoolfees}" />
+
+        <br/>
+
+        <input type="submit" value="Submit" />
+    </form>
+</div>
+</body>
+</html>

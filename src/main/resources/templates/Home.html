@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+    <style>
+        /* CSS for navigation */
+        .navbar {
+            background-color: #f2f2f2;
+            overflow: hidden;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: #333;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+        }
+
+        .navbar a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+  body {
+
+  background-color: skyblue;
+
+  }
+
+  h1 {
+
+  font-size:100px;
+
+  }
+
+    </style>
+</head>
+<body>
+<div class="navbar">
+    <a th:href="@{/}" class="active">Home</a>
+    <a th:href="@{/schools/new}"> Admin Page </a>
+    <a th:href="@{/signup}">Parent page </a>
+</div>
+
+<h1>Welcome to Primary And Nursary School Solution Application </h1>
+<!-- Rest of your content -->
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML Form with CSS using Thymeleaf</title>
+    <style>
+        /* CSS styles */
+        .form-container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f2f2f2;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-container h2 {
+            text-align: center;
+        }
+
+        .form-container label,
+        .form-container input[type="text"],
+        .form-container textarea {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .form-container textarea {
+            height: 100px;
+        }
+
+        .form-container input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        body{
+        background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+<div class="form-container">
+    <h2>HTML Form with CSS</h2>
+    <form th:action="@{/school/{user_id}/edit(user_id=${sch.id})}" th:object="${sch}" method="post" role="form">
+
+        <input type="hidden" id="id" name="id" th:value="${sch.id}" th:fields="*{id}" />
+        <label for="schooltitle">Name of school:</label>
+        <input type="text" id="schooltitle" name="schooltitle" th:value="${sch.schooltitle}" th:fields="*{schooltitle}" />
+        <br/>
+        <label for="photoUrl">Locatio:</label>
+        <input type="text" id="photoUrl" name="photoUrl" th:value="${sch.photoUrl}" th:fields="*{photoUrl}" />
+        <br/>
+        <label for="ranking">Ranking:</label>
+        <input type="number" id="ranking" name="ranking" th:value="${sch.ranking}" th:fields="*{ranking}" />
+        <br/>
+        <label for="schoolfees">Fees:</label>
+        <input type="number" id="schoolfees" name="schoolfees" th:value="${sch.schoolfees}" th:fields="*{schoolfees}" />
+        <br/>
+        <br/>
+        <input type="submit" value="Edit" />
+    </form>
+</div>
+</body>
+</html>

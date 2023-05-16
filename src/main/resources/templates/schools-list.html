@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>School List</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+
+        body{
+
+        background-color: skyblue;
+
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>School List</h1>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Ranking</th>
+            <th>Fees</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr th:each="school :${school}">
+            <td th:text="${school.schooltitle}"></td>
+            <td th:text="${school.photoUrl}"></td>
+            <td th:text="${school.ranking}"></td>
+            <td th:text="${school.schoolfees}"></td>
+            <td> <a class="btn btn-primary" th:href="@{/school/{user_id}/edit(user_id=${school.id})}">EDIT</a></td>
+            <td> <a class="btn btn-danger" th:href="@{/school/{user_id}/delete(user_id=${school.id})}"}>DELETE</a></td>
+
+        </tr>
+
+
+        <!-- Add more rows for additional schools -->
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
